@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Neighborhood Map (Udacity Project)</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; width:300px; padding: 5px;" id="mySidebar">
+      <button class="w3-button w3-teal w3-xlarge w3-hover-teal side" onclick="w3_close()">&#9776;</button>
+      <span class="w3-bar-item text-center" style="font-size: 26px; color: #009688;" >Marked Locations</span>
+
+      <div class="search" id="search">
+    		<input type="text" class="search-box form-control" placeholder="Search Marker Locations" id="search-box" data-bind="textInput: searchLocation, valueUpdate: 'afterkeydown'" />
+    	</div>
+
+      <div class="app" id="app">
+    		<div class="list" id="list">
+    			<ul style="margin:10px;" class="results list-group" id="results" data-bind="foreach: filteredMarks">
+    				<a href="#"> <li style="margin: 5px;" class="place list-group-item text-success" id="place" data-bind="text: name, click: selectedLocation"></li> </a>
+    			</ul>
+    		</div>
+    	</div>
+
+  </div>
+    <div id="main">
+      <div class="w3-teal">
+        <button id="openNav" class="w3-button w3-teal w3-hover-teal w3-xlarge side" onclick="w3_open()">&#9776;</button>
+        <div class="w3-container">
+          <h1 class="text-center">Neighborhood Map</h1>
+        </div>
+    </div>
+
+
+	<div class="app" id="app">
+		<div class="map" id="map"></div>
+	</div>
+
+	<script src='js/knockout.js'></script>
+	<script src='js/jquery.js'></script>
+	<script src='js/app.js'></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA6qoUKQ3WJQd4ZxAahhFPM80WJbw-yws&callback=startApp&libraries=places" onerror="handlingError()"></script>
+</body>
+</html>
